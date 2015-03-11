@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Clustering/.idea/Clustering.iml" filepath="$PROJECT_DIR$/../Clustering/.idea/Clustering.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FlowToolPython/.idea/FlowToolPython.iml" filepath="$PROJECT_DIR$/../FlowToolPython/.idea/FlowToolPython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Hypothesis.iml" filepath="$PROJECT_DIR$/.idea/Hypothesis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../LatestClustering/.idea/LatestClustering.iml" filepath="$PROJECT_DIR$/../LatestClustering/.idea/LatestClustering.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../NewClustering/.idea/NewClustering.iml" filepath="$PROJECT_DIR$/../NewClustering/.idea/NewClustering.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,162 @@
+Total Accuracy :0.35157418726
+Http Accuracy :0.0
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.666666666667
+Http True Positive :0
+Http False Positive :0.0
+Http False Negative :7588
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :108
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :140
+Bittorrent True Positive :5826
+Bittorrent False Positive :1942.0
+BIttorrent False Negative :2913
+=============== 0.11 ===============
+Total Accuracy :0.495536255633
+Http Accuracy :0.469148438576
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.533333333333
+Http True Positive :3196
+Http False Positive :1696.60159031
+Http False Negative :3614
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :95
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :127
+Bittorrent True Positive :4160
+Bittorrent False Positive :1941.33333333
+BIttorrent False Negative :3656
+=============== 0.22 ===============
+Total Accuracy :0.626152722639
+Http Accuracy :0.6
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.666666666667
+Http True Positive :3644
+Http False Positive :1457.6
+Http False Negative :2431
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :84
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :112
+Bittorrent True Positive :4683
+Bittorrent False Positive :1561.0
+BIttorrent False Negative :2340
+=============== 0.33 ===============
+Total Accuracy :0.726983149607
+Http Accuracy :0.666374269006
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.8
+Http True Positive :3635
+Http False Positive :1212.72953216
+Http False Negative :1820
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :76
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :101
+Bittorrent True Positive :5017
+Bittorrent False Positive :1003.4
+BIttorrent False Negative :1254
+=============== 0.44 ===============
+Total Accuracy :0.858719903919
+Http Accuracy :0.80043988904
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.933333333333
+Http True Positive :3923
+Http False Positive :782.874315297
+Http False Negative :968
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :70
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :93
+Bittorrent True Positive :5238
+Bittorrent False Positive :349.2
+BIttorrent False Negative :374
+=============== 0.55 ===============
+Total Accuracy :0.884022216738
+Http Accuracy :0.933210164227
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.866666666667
+Http True Positive :4084
+Http False Positive :272.769689295
+Http False Negative :295
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :61
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :80
+Bittorrent True Positive :4371
+Bittorrent False Positive :582.8
+BIttorrent False Negative :671
+=============== 0.66 ===============
+Total Accuracy :0.854068600561
+Http Accuracy :0.866950075978
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.866666666667
+Http True Positive :3417
+Http False Positive :454.631590384
+Http False Negative :526
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :53
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :71
+Bittorrent True Positive :3897
+Bittorrent False Positive :519.6
+BIttorrent False Negative :601
+=============== 0.77 ===============
+Total Accuracy :0.883825471577
+Http Accuracy :0.932349030873
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.866666666667
+Http True Positive :3279
+Http False Positive :221.827527768
+Http False Negative :237
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :50
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :65
+Bittorrent True Positive :3501
+Bittorrent False Positive :466.8
+BIttorrent False Negative :536
+=============== 0.88 ===============
+Total Accuracy :0.682844498925
+Http Accuracy :0.800589029441
+Edonkey Accuracy :0.0
+Gnutella Accuracy :0.0
+Bittorrent Accuracy :0.6
+Http True Positive :2524
+Http False Positive :503.313289692
+Http False Negative :630
+Gnutella True Positive :0
+Gnutella False Positive :0.0
+Gnutella False Negative :45
+Edonkey True Positive :0
+Edonkey False Positive :0.0
+Edonkey False Negative :60
+Bittorrent True Positive :2173
+Bittorrent False Positive :869.2
+BIttorrent False Negative :1448
+=============== 0.99 ===============
