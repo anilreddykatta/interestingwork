@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1daee9-6245-42f0-a6ac-e13f6967344b" name="Default" comment="" />
+    <list default="true" id="5f1daee9-6245-42f0-a6ac-e13f6967344b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hypothesis.v12.suo" afterPath="$PROJECT_DIR$/Hypothesis.v12.suo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hypothesis.pyproj" afterPath="$PROJECT_DIR$/Hypothesis.pyproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestFlowResult.py" afterPath="$PROJECT_DIR$/TestFlowResult.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TrainFlowResult.py" afterPath="$PROJECT_DIR$/TrainFlowResult.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroup2.csv" afterPath="$PROJECT_DIR$/resultsfinalgroup2.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size Std Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size Std Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Std Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Std Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size Std Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size Std Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Std Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupStd Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupStd Div Pkt Size .csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unsupervisedclassification.py" afterPath="$PROJECT_DIR$/unsupervisedclassification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -47,14 +71,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unsupervisedclassification.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unsupervisedclassification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unsupervisedclassification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7579832" vertical-offset="1709" max-vertical-offset="2352">
-              <caret line="135" column="59" selection-start-line="135" selection-start-column="59" selection-end-line="135" selection-end-column="59" />
-              <folding>
-                <element signature="e#27#45#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="3979" max-vertical-offset="4560">
+              <caret line="250" column="30" selection-start-line="250" selection-start-column="30" selection-end-line="250" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newversion.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/newversion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.141136" vertical-offset="3648" max-vertical-offset="7120">
+              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,7 +94,7 @@
       <file leaf-file-name="new_hypo.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_hypo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7536">
+            <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="7536">
               <caret line="19" column="70" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="70" />
               <folding>
                 <element signature="e#48#66#0" expanded="true" />
@@ -72,6 +104,9 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -99,6 +134,7 @@
         <option value="$PROJECT_DIR$/supervisedclassification.py" />
         <option value="$PROJECT_DIR$/Unsupervisedclassification.py" />
         <option value="$PROJECT_DIR$/unsupervisedclassification.py" />
+        <option value="$PROJECT_DIR$/newversion.py" />
       </list>
     </option>
   </component>
@@ -111,7 +147,7 @@
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -122,7 +158,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -142,9 +178,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hypothesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hypothesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -512,28 +567,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22012103" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6966292" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21709532" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34510434" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6966292" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34510434" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -600,16 +655,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/new_hypo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2326" max-vertical-offset="8478">
-          <caret line="136" column="70" selection-start-line="136" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supervisedclassification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
@@ -988,11 +1033,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/unsupervisedclassification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7579832" vertical-offset="1709" max-vertical-offset="2352">
-          <caret line="135" column="59" selection-start-line="135" selection-start-column="59" selection-end-line="135" selection-end-column="59" />
-          <folding>
-            <element signature="e#27#45#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="3979" max-vertical-offset="4560">
+          <caret line="250" column="30" selection-start-line="250" selection-start-column="30" selection-end-line="250" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newversion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.141136" vertical-offset="3648" max-vertical-offset="7120">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

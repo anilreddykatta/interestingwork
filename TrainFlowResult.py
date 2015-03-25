@@ -9,6 +9,7 @@ class TrainFlowResult(object):
         self.probability_for_bittorrent = None
         self.final_probability = None
         self.application = None
+        self.number_of_flows = None
 
     def calculate_final_probability(self):
         #self.final_probabilty = 1.0 - ((1.0 - self.probability_for_app1)*(1.0 - self.probability_for_app2)*(1.0 - self.probability_for_app3))

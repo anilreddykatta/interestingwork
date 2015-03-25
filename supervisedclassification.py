@@ -80,6 +80,8 @@ def return_train_test_labels(input_data, number_of_each_flows, percent=0.9):
     return (train_data, train_labels, test_data, test_labels)
 
 
+from sklearn.naive_bayes import GaussianNB
+
 def main():
     input_data = read_file_return_numpy_array("realinput.csv")
     train, train_labels, test, test_labels = return_train_test_labels(input_data, None)
@@ -103,6 +105,13 @@ def main():
         pred = clf.predict(test_new)
         results[i] = accuracy_score(test_labels, pred)
         print("Accuracy with Adaboost Total labels is: "+str(accuracy_score(test_labels, pred))+' with '+str(i)+' features')
+
+        clf = GaussianNB()
+        clf.fit(train_new, train_labels)
+        pred = clf.predict(test_new)
+        results[i] = accuracy_score(test_labels, pred)
+        print("Accuracy with Naive Bayes is: "+str(accuracy_score(test_labels, pred))+' with '+str(i)+' features')
+
 
     plt.plot(results.keys(), results.values(), 'ro-')
     plt.xlabel('Number of Selected Features')

@@ -7,12 +7,36 @@ from TrainFlowResult import TrainFlowResult
 from TestFlowResult import TesFlowResult
 import csv
 import matplotlib.pyplot as plt
+import itertools
 
 PROTO_DICT_MAP = {0: 'http', 1: 'gnutella', 2: "edonkey", 3: "bittorrent"}
 
-PROTO_DICT = {'http': 0, 'gnutella': 1, "edonkey": 2, "bittorrent": 3}
+PROTO_DICT = {'http': 0.0, 'gnutella': 1.0, "edonkey": 2.0, "bittorrent": 3.0}
 
 DEBUG = False
+
+ATTRIBUTE_MAP = {0:'Avg IAT', 1: "Min IAT", 2:"Max IAT", 3:"Std Div IAT",
+                 4:"Avg RIAT", 5:"Max RIAT", 6:"Std Div RIAT",
+                 7:'Avg Pkt Size', 8:'Min Pkt Size', 9:'Max Pkt Size', 10:'Std Div Pkt Size',
+                 11:"Total Pkt Size", 12:"Flow Duration", 13:"Number of Packets", 14:"Avg Pkts Per Sec",
+                 15:"Avg Bytes Per Sec", 16:"Payload Size"}
+
+
+ATTRIBUTE_GROUP_LIST = ['iat', 'riat', 'pkt size', 'flow']
+
+#ATTRIBUTE_GROUP_LIST = ['pkt size']
+
+def return_permutations_of_group(group_name):
+    if group_name.lower() == "iat":
+        return generate_all_possible_combinations_of_list([0, 1, 2, 3])
+    elif group_name.lower() == 'riat':
+        return generate_all_possible_combinations_of_list([4, 5, 6])
+    elif group_name.lower() == 'pkt size':
+        return generate_all_possible_combinations_of_list([7, 8, 9, 10])
+    elif group_name.lower() == 'flow':
+        return generate_all_possible_combinations_of_list([11, 12, 13, 14, 15, 16])
+
+
 
 def get_numpy_array_from_file(file_name):
     return np.genfromtxt(file_name, delimiter=",")
@@ -20,10 +44,10 @@ def get_numpy_array_from_file(file_name):
 
 def return_train_test_labels(input_data, number_of_each_flows, percent=0.9):
     input_data = np.copy(input_data)
-    http_data = input_data[input_data[:, 14] == PROTO_DICT['http']]
-    gnutella_data = input_data[input_data[:, 14] == PROTO_DICT['gnutella']]
-    edonkey_data = input_data[input_data[:, 14] == PROTO_DICT['edonkey']]
-    bittorrent_data = input_data[input_data[:, 14] == PROTO_DICT['bittorrent']]
+    http_data = input_data[input_data[:, 17] == PROTO_DICT['http']]
+    gnutella_data = input_data[input_data[:, 17] == PROTO_DICT['gnutella']]
+    edonkey_data = input_data[input_data[:, 17] == PROTO_DICT['edonkey']]
+    bittorrent_data = input_data[input_data[:, 17] == PROTO_DICT['bittorrent']]
 
     http_labels = http_data[:, -1]
     http_data = http_data[:, :-1]
@@ -106,7 +130,6 @@ def get_indices_for_pred(pred, cluter_number):
 
 def generate_stats_for_cluster(data, cluster_number, attribute_group):
     result_map = {0: 0, 1: 0, 2: 0, 3: 0}
-    #print(data.tolist())
     for i in data.tolist()[0]:
         if i in result_map:
             result_map[int(i)] = result_map[i] + 1
@@ -167,11 +190,11 @@ def testing(test_data, test_labels, k_means_cls, train_result_map, attribute_gro
         test_flow_result = TesFlowResult()
         test_flow_result.actual_protocol = PROTO_DICT_MAP[int(test_labels[index, :][0])]
         test_flow_result.classification_result = PROTO_DICT_MAP[int(train_result_map[int(i)].application)]
-        if consider_all and train_result_map[int(i)].final_probability < 0.6:
+        if consider_all and train_result_map[int(i)].final_probability < 0.8:
             continue
         test_flow_result.probability = train_result_map[int(i)].final_probability
         test_flow_result.testing_flow = index
-        test_flow_result.true_positive = (PROTO_DICT_MAP[int(test_labels[index, :][0])] == PROTO_DICT_MAP[int(train_result_map[int(i)].application)])
+        test_flow_result.true_positive = (PROTO_DICT_MAP[test_labels[index, :][0]] == PROTO_DICT_MAP[int(train_result_map[int(i)].application)])
         if test_flow_result.true_positive:
             true_positive += 1
         test_flow_result.write_to_csv(csv_file)
@@ -185,7 +208,7 @@ def testing(test_data, test_labels, k_means_cls, train_result_map, attribute_gro
     print('Temp Accuracy Iter 1: '+str(float(true_positive)/index))
     return float(true_positive)/index
 
-import itertools
+
 def generate_all_possible_combinations_of_list(input_list):
     return_list = []
     for length in range(1, len(input_list) + 1):
@@ -194,10 +217,8 @@ def generate_all_possible_combinations_of_list(input_list):
     return return_list
 
 
-ATTRIBUTE_MAP = {4:'Avg Pkt Size', 5:'Min Pkt Size', 6:'Max Pkt Size', 7:'Std Div Pkt Size'}
-
 def main(number_of_clusters=20, number_of_times=10, consider_all = True):
-    input_data = get_numpy_array_from_file("realinput.csv")
+    input_data = get_numpy_array_from_file("mofifiedinput.csv")
     train, train_labels, test, test_labels = return_train_test_labels(input_data, None)
     fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result', 'Probability', 'True Positive']
     for i in range(1, 4):
@@ -214,20 +235,26 @@ def main(number_of_clusters=20, number_of_times=10, consider_all = True):
             final_accuracy = testing(after_attribute_test_set, test_labels, k_means_cls, train_result_map, i, csv_file, consider_all)
             print('='*15+str('Atrribute Group '+str(i))+'='*15)
 
+
 def get_app_string(input_list):
     return_string = ''
     for i in input_list:
         return_string += ATTRIBUTE_MAP[i] + ' '
     return return_string
 
-def main_modified(number_of_clusters=20, number_of_times=10, consider_all=True, number_of_repetetions=10):
-    input_data = get_numpy_array_from_file("realinput.csv")
+
+def main_modified(attribute_list, outputfile, number_of_clusters=20, number_of_times=10, consider_all=True, number_of_repetetions=10):
+    input_data = get_numpy_array_from_file("mofifiedinput.csv")
     train, train_labels, test, test_labels = return_train_test_labels(input_data, None)
+    print(train.shape)
     fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result', 'Probability', 'True Positive']
-    for sub in generate_all_possible_combinations_of_list([4, 5, 6, 7]):
+    for sub in attribute_list:
         final_accu = 0.0
         after_attribute_set = get_attribute_group_modified(train, sub)
         after_attribute_test_set = get_attribute_group_modified(test, sub)
+        if DEBUG:
+            print(after_attribute_set.shape)
+            print(after_attribute_test_set.shape)
         for i in range(number_of_repetetions):
             with open('resultsfinalgroup'+str(get_app_string(sub))+'.csv', 'w', 20) as output_file:
                 csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
@@ -239,13 +266,21 @@ def main_modified(number_of_clusters=20, number_of_times=10, consider_all=True, 
                 final_accu += final_accuracy
         print("Final Accuracy: "+str(final_accu/number_of_repetetions))
         print('='*15+str('Atrribute Group '+str(get_app_string(sub)))+'='*15)
+        outputfile.write("Final Accuracy: "+str(final_accu/number_of_repetetions)+"\n")
+        outputfile.write('-'*15+str('Atrribute Group '+str(get_app_string(sub)))+'-'*15+"\n")
 
 
 if __name__ == '__main__':
-    inp = int(input("Enter 1 or 0 whether to use all or only > 0.8: "))
+    #inp = int(input("Enter 1 or 0 whether to use all or only > 0.8: "))
+    inp = 1
     consider_all = True
     if inp == 1:
         consider_all = False
     else:
         consider_all = True
-    main_modified(25, 50, consider_all, 1)
+    output_file = open("resultscompiled.txt", "w", 20)
+    #with open("resultscompiled.txt", "w", 20) as output_file:
+    for att in ATTRIBUTE_GROUP_LIST:
+        attr_list = return_permutations_of_group(att)
+        main_modified(attr_list, output_file, 25, 50, consider_all, 3)
+    output_file.close()
