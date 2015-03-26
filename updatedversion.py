@@ -305,7 +305,7 @@ def testing(test_data, test_labels, consider_all, number_of_clusters):
                       'Group 1 Fraction', 'Group 2 Fraction', 'Group 3 Fraction', 'Group 4 Fraction', 
                       'Group 1 label', 'Group 2 label', 'Group 3 label', 'Group 4 label', 'Number of Flows', 
                       'True Positive']
-    output_file = open('C:\/Users\KattaAnil/PycharmProjects/Hypothesis/New/final'+'-'+ SELECTION_ALGO +'-clusters-'+str(number_of_clusters) + '.csv   ', 'w', 20)
+    output_file = open(SELECTION_ALGO +'-clusters-'+str(number_of_clusters) + '.csv   ', 'w', 20)
     csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
     csv_file.writeheader()
     for att in ATTRIBUTE_GROUP_LIST:
@@ -555,14 +555,15 @@ def create_plots():
     plt.show()
 
 def create_comparision_plots():
-    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), marker='r*', label="Hypothesis")
-    #plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), marker='bo', label='Supervised')
+    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), 'r*', label="Hypothesis")
+    plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), 'g^', label='Supervised')
     plt.title('Percent of Training v/s Accuracy')
     plt.xlabel('Percent of Data')
     plt.ylabel('Accuracy')
     plt.show()
 
 if __name__ == '__main__':
+    print("New Updated version of the file")
     inp = 1
     consider_all = True
     if inp == 1:
@@ -571,15 +572,15 @@ if __name__ == '__main__':
         consider_all = True
     output_file = open("resultscompiled.txt", "w", 20)
     input_data = get_numpy_array_from_file("mofifiedinput.csv")
-    for i in range(1, 10):
-        percent = i/10.0
+    number_of_iterations = 10
+    for i in range(1, 20):
+        percent = i/20.0
         final_accu = 0.0
-        for i in range(5):
+        for i in range(number_of_iterations):
             final_accu += main_modified(input_data, output_file, 150, 50, consider_all, 5, percent=percent)
             print('Final Accu: '+str(final_accu))
-        unsupervised_plot_map[percent] = float(final_accu)/5
+        unsupervised_plot_map[percent] = float(final_accu)/number_of_iterations
         supervised(input_data, percent=percent)
     print("Done with Calculations")
     create_comparision_plots()
-    #create_plots()
     output_file.close()
