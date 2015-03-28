@@ -305,7 +305,8 @@ def testing(test_data, test_labels, consider_all, number_of_clusters):
                       'Group 1 Fraction', 'Group 2 Fraction', 'Group 3 Fraction', 'Group 4 Fraction', 
                       'Group 1 label', 'Group 2 label', 'Group 3 label', 'Group 4 label', 'Number of Flows', 
                       'True Positive']
-    output_file = open(SELECTION_ALGO +'-clusters-'+str(number_of_clusters) + '.csv   ', 'w', 20)
+    output_file = open('./results/'+SELECTION_ALGO +'-clusters-'+str(number_of_clusters) + '.csv   ', 'w', 20)
+    print('Output file has been created '+str(output_file))
     csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
     csv_file.writeheader()
     for att in ATTRIBUTE_GROUP_LIST:
@@ -490,7 +491,7 @@ def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times
                 print(after_attribute_set.shape)
                 print(after_attribute_test_set.shape)
             for i in range(number_of_repetetions):
-                with open('resultsfinalgroup' + str(get_app_string(sub)) + '.csv', 'w', 20) as output_file:
+                with open('./results/resultsfinalgroup' + str(get_app_string(sub)) + '.csv', 'w', 20) as output_file:
                     csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
                     csv_file.writeheader()
                     if DEBUG:
