@@ -556,8 +556,11 @@ def create_plots():
     plt.show()
 
 def create_comparision_plots():
-    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), 'r*', label="Hypothesis")
-    plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), 'g^', label='Supervised')
+    print(unsupervised_plot_map)
+    print(supervised_plot_map)
+    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), '-r*', label="Hypothesis")
+    plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), '-g^', label='Supervised')
+    plt.legend()
     plt.title('Percent of Training v/s Accuracy')
     plt.xlabel('Percent of Data')
     plt.ylabel('Accuracy')
@@ -573,9 +576,10 @@ if __name__ == '__main__':
         consider_all = True
     output_file = open("resultscompiled.txt", "w", 20)
     input_data = get_numpy_array_from_file("mofifiedinput.csv")
-    number_of_iterations = 10
-    for i in range(1, 20):
-        percent = i/20.0
+    number_of_iterations = 1
+    percentage_range = 5
+    for i in range(1, percentage_range):
+        percent = i/float(percentage_range)
         final_accu = 0.0
         for i in range(number_of_iterations):
             final_accu += main_modified(input_data, output_file, 150, 50, consider_all, 5, percent=percent)
