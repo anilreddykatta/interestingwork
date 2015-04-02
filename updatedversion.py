@@ -149,8 +149,6 @@ class TrainFlowResult(object):
         self.number_of_flows = None
 
     def calculate_final_probability(self):
-        #self.final_probabilty = 1.0 - ((1.0 - self.probability_for_app1)*(1.0
-        #- self.probability_for_app2)*(1.0 - self.probability_for_app3))
         self.final_probability = max(self.probability_for_http, self.probability_for_gnutella, self.probability_for_edonkey, 
                                      self.probability_for_bittorrent, self.probability_for_skype)
         if self.final_probability == self.probability_for_http:
@@ -558,9 +556,16 @@ def create_plots():
 def create_comparision_plots():
     print(unsupervised_plot_map)
     print(supervised_plot_map)
-    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), '-r*', label="Hypothesis")
-    plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), '-g^', label='Supervised')
-    plt.legend()
+    fig = plt.figure()
+    ax = fig.gca()
+    ax.set_xticks(np.arange(0,1,0.1))
+    ax.set_yticks(np.arange(0.6,1,0.05))
+    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), 'r*', label="Hypothesis")
+    plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), 'g^', label='Supervised')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.6, 1.0])
+    plt.grid()
+    plt.legend(loc='best')
     plt.title('Percent of Training v/s Accuracy')
     plt.xlabel('Percent of Data')
     plt.ylabel('Accuracy')
@@ -576,8 +581,8 @@ if __name__ == '__main__':
         consider_all = True
     output_file = open("resultscompiled.txt", "w", 20)
     input_data = get_numpy_array_from_file("mofifiedinput.csv")
-    number_of_iterations = 1
-    percentage_range = 5
+    number_of_iterations = 10
+    percentage_range = 40
     for i in range(1, percentage_range):
         percent = i/float(percentage_range)
         final_accu = 0.0
