@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 import csv
 import itertools
+import matplotlib.pyplot as plt
 
 PROTO_DICT_MAP = {0: 'http', 1: 'gnutella', 2: "edonkey", 3: "bittorrent", 4: "skype"}
 
@@ -212,7 +213,7 @@ def main():
     plot_with_all_map = {}
     plot_with_selected_map = {}
     number_of_iters = 5
-    for clus in range(10, 150, 5):
+    for clus in range(10, 150, 10):
         final_accu = 0.0
         for i in range(number_of_iters):
             k_means = KMeans(init='random', n_clusters=clus, n_init=50)
@@ -254,5 +255,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-

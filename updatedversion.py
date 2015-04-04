@@ -219,11 +219,6 @@ class TesFlowResult(object):
             total += self.group_flow_four_population
         self.avg_population_fraction = float(total) / 4.0
 
-    """def calculate_simple_probability(self):
-        bit_prob = 1.0 - (1.0 - self.group_pkt_size_one_population)*(1.0 - self.bittorrent_g2)*(1.0 - self.bittorrent_g3)
-        http_prob = 1.0 - (1.0 - self.http_g1)*(1.0 - self.http_g2)*(1.0 - self.http_g3)
-        gnu_prob = 1.0 - (1.0 - self.gnutella_g1)*(1.0 - self.gnutella_g2)*(1.0 - self.gnutella_g3)
-        edo_prob = 1.0 - (1.0 - self.edonkey_g1)*(1.0 - self.edonkey_g2)*(1.0 - self.edonkey_g3)"""
 
 def generate_stats_for_cluster(data, cluster_number, attribute_group):
     result_map = {0: 0, 1: 0, 2: 0, 3: 0}
@@ -572,7 +567,7 @@ def create_comparision_plots():
     plt.show()
 
 if __name__ == '__main__':
-    print("New Updated version of the file")
+    print("New New updated version of the file")
     inp = 1
     consider_all = True
     if inp == 1:
@@ -581,8 +576,8 @@ if __name__ == '__main__':
         consider_all = True
     output_file = open("resultscompiled.txt", "w", 20)
     input_data = get_numpy_array_from_file("mofifiedinput.csv")
-    number_of_iterations = 10
-    percentage_range = 40
+    number_of_iterations = 5
+    percentage_range = 20
     for i in range(1, percentage_range):
         percent = i/float(percentage_range)
         final_accu = 0.0

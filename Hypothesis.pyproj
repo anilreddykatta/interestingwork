@@ -11,8 +11,9 @@
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId>{02707a6f-f58c-4ec8-bea0-9c33cc7b4007}</InterpreterId>
+    <InterpreterId>{33d80497-e4bb-4b3e-8afa-340dfbf66f7c}</InterpreterId>
     <InterpreterVersion>2.7</InterpreterVersion>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -25,11 +26,15 @@
     <Content Include="results_ouput.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addriattodata.py" />
     <Compile Include="ClusteringClassificationModel.py" />
     <Compile Include="hypothesis.py" />
+    <Compile Include="kmeans.py" />
+    <Compile Include="newversion.py" />
     <Compile Include="newversionofunsupervised.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="new_hypo.py" />
     <Compile Include="ProbabilityDistribution.py">
       <SubType>Code</SubType>
     </Compile>
@@ -41,9 +46,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="unsupervisedclassification.py" />
+    <Compile Include="updatedversion.py" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="{02707a6f-f58c-4ec8-bea0-9c33cc7b4007}\2.7" />
+    <InterpreterReference Include="{33d80497-e4bb-4b3e-8afa-340dfbf66f7c}\2.7" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
