@@ -190,19 +190,30 @@ def testing(test_data, test_labels, k_means, train_result_map):
     
 def create_plots(plot_map, plot_selected_map):
     fig = plt.figure()
+    percentage_hypo = []
+    accuracy_hypo = []
+    percentage_unsupervised = []
+    accuracy_unsupervised = []
+    for i in sorted(plot_map.keys()):
+        percentage_hypo.append(i)
+        accuracy_hypo.append(plot_map[i])
+
+    for i in sorted(plot_selected_map.keys()):
+        percentage_unsupervised.append(i)
+        accuracy_unsupervised.append(plot_selected_map[i])
+    plt.plot(percentage_hypo, accuracy_hypo, '-r*', label='K-Means all Attrs')
+    plt.plot(percentage_unsupervised, accuracy_unsupervised, '-g^', label='K-Means Selected')
     ax = fig.gca()
-    ax.set_xticks(np.arange(0,1,0.1))
-    ax.set_yticks(np.arange(0.6,1,0.05))
-    plt.plot(plot_map.keys(), plot_map.values(), 'r*', label="K-Means All Attrs")
-    plt.plot(plot_selected_map.keys(), plot_selected_map.values(), 'g^', label="K-Means With Selected")
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.6, 1.0])
+    ax.set_xticks(np.arange(0,150,10))
+    ax.set_yticks(np.arange(0.4,1,0.05))
+    plt.xlim([0, 150])
+    plt.ylim([0.4, 1.0])
     plt.grid()
     plt.legend(loc='best')
-    plt.title('Percent of Training v/s Accuracy')
-    plt.xlabel('Percent of Data')
+    plt.title('No of Clusters v/s Accuracy')
+    plt.xlabel('No. of Clusters')
     plt.ylabel('Accuracy')
-    plt.show() 
+    plt.show()
 
 def get_attribute_group_final(data, attribute_list):
     return data[attribute_list]
@@ -252,6 +263,57 @@ def main():
         plot_with_selected_map[clus] = float(final_accu)/number_of_iters
         print('Final selected Accuracy: '+str(plot_with_selected_map[clus]))    
     create_plots(plot_with_all_map, plot_with_selected_map)
+    
+def main_modified():
+    input_data = get_numpy_array_from_file("mofifiedinput.csv")
+    plot_with_selected_map = {}
+    plot_with_all_map= {}
+    number_of_iterations = 3
+    percentage_range = 40
+    clus = 40
+    for i in range(1, percentage_range):
+        percent = i/float(percentage_range)
+        final_accu = 0.0
+        train_data, train_labels, test_data, test_labels = return_train_test_labels(input_data, None, percent=percent)
+        final_accu = 0.0
+        for i in range(number_of_iterations):
+            k_means = KMeans(init='random', n_clusters=clus, n_init=50)
+            k_means.fit(train_data)
+            pred = k_means.labels_
+            train_result_map = {}
+            for i in range(clus):
+                indices = get_indices_for_pred(pred, i)
+                refined_data = np.copy(train_data)
+                refined_data = combine_labels_data(refined_data, train_labels)
+                refined_data = refined_data[indices, -1]
+                train_result_map[i] = generate_stats_for_cluster(refined_data, i)
+            final_accu += testing(test_data, test_labels, k_means, train_result_map)
+            print(final_accu)
+        plot_with_all_map[percent] = float(final_accu)/number_of_iterations
+        print('Final Accuracy: '+str(plot_with_all_map[percent])) 
+        
+        final_accu = 0.0
+        for i in range(number_of_iterations):
+            k_means = KMeans(init='random', n_clusters=clus, n_init=50)
+            train_copy = np.copy(train_data)
+            test_copy = np.copy(test_data)
+            train_copy = get_attribute_group_modified(train_copy, [7, 8, 9, 10, 11, 13, 16])
+            test_copy = get_attribute_group_modified(test_copy, [7, 8, 9, 10, 11, 13, 16])
+            k_means.fit(train_copy)
+            pred = k_means.labels_
+            train_result_map = {}
+            for i in range(clus):
+                indices = get_indices_for_pred(pred, i)
+                refined_data = np.copy(train_data)
+                refined_data = combine_labels_data(refined_data, train_labels)
+                refined_data = refined_data[indices, -1]
+                train_result_map[i] = generate_stats_for_cluster(refined_data, i)
+            final_accu += testing(test_copy, test_labels, k_means, train_result_map)
+            print(final_accu)
+        plot_with_selected_map[percent] = float(final_accu)/number_of_iterations
+        
+    print(plot_with_all_map)
+    print(plot_with_selected_map)
 
 if __name__ == '__main__':
-    main()
+    main_modified()

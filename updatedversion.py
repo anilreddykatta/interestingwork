@@ -577,7 +577,7 @@ if __name__ == '__main__':
     output_file = open("resultscompiled.txt", "w", 20)
     input_data = get_numpy_array_from_file("mofifiedinput.csv")
     number_of_iterations = 5
-    percentage_range = 20
+    percentage_range = 40
     for i in range(1, percentage_range):
         percent = i/float(percentage_range)
         final_accu = 0.0
