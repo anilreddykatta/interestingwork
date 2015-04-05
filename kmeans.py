@@ -190,19 +190,30 @@ def testing(test_data, test_labels, k_means, train_result_map):
     
 def create_plots(plot_map, plot_selected_map):
     fig = plt.figure()
+    percentage_hypo = []
+    accuracy_hypo = []
+    percentage_unsupervised = []
+    accuracy_unsupervised = []
+    for i in sorted(plot_map.keys()):
+        percentage_hypo.append(i)
+        accuracy_hypo.append(plot_map[i])
+
+    for i in sorted(plot_selected_map.keys()):
+        percentage_unsupervised.append(i)
+        accuracy_unsupervised.append(plot_selected_map[i])
+    plt.plot(percentage_hypo, accuracy_hypo, '-r*', label='K-Means all Attrs')
+    plt.plot(percentage_unsupervised, accuracy_unsupervised, '-g^', label='K-Means Selected')
     ax = fig.gca()
-    ax.set_xticks(np.arange(0,1,0.1))
-    ax.set_yticks(np.arange(0.6,1,0.05))
-    plt.plot(plot_map.keys(), plot_map.values(), 'r*', label="K-Means All Attrs")
-    plt.plot(plot_selected_map.keys(), plot_selected_map.values(), 'g^', label="K-Means With Selected")
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.6, 1.0])
+    ax.set_xticks(np.arange(0,150,10))
+    ax.set_yticks(np.arange(0.4,1,0.05))
+    plt.xlim([0, 150])
+    plt.ylim([0.4, 1.0])
     plt.grid()
     plt.legend(loc='best')
-    plt.title('Percent of Training v/s Accuracy')
-    plt.xlabel('Percent of Data')
+    plt.title('No of Clusters v/s Accuracy')
+    plt.xlabel('No. of Clusters')
     plt.ylabel('Accuracy')
-    plt.show() 
+    plt.show()
 
 def get_attribute_group_final(data, attribute_list):
     return data[attribute_list]
