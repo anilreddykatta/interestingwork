@@ -35,6 +35,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="new_hypo.py" />
+    <Compile Include="plotting.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ProbabilityDistribution.py">
       <SubType>Code</SubType>
     </Compile>
