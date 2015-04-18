@@ -21,13 +21,31 @@ ATTRIBUTE_MAP = {0:'Avg IAT', 1: "Min IAT", 2:"Max IAT", 3:"Std Div IAT",
 
 ATTRIBUTE_GROUP_LIST = ['pkt size', 'flow']
 
-#ATTRIBUTE_GROUP_LIST = ['pkt size']
+
+def get_attribute_set_for_number_of_models(number_of_models):
+    if number_of_models == 3:
+        return [[11, 16], [7, 8, 9], [7, 10]]
+    elif number_of_models == 4:
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16]]
+    elif number_of_models == 5:
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10]]
+    elif number_of_models == 6:
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9]]
+    elif number_of_models == 7:
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12]]
+    elif number_of_models == 8:
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12], [9, 10]]
+    elif number_of_models == 9:
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12], [9, 10], [7, 9, 10]]
+    elif number_of_models == 10:
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12], [9, 10], [7, 9, 10], [8, 10]]
+
+
 def return_permutations_of_group(group_name):
     if group_name.lower() == "pkt size":
         return [[7, 10], [7, 8, 9]]
     elif group_name.lower() == "flow":
         return [[11, 16], [13, 16]]
-
 
 
 def get_numpy_array_from_file(file_name):

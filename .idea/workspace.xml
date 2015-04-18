@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f1daee9-6245-42f0-a6ac-e13f6967344b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hypothesis.v12.suo" afterPath="$PROJECT_DIR$/Hypothesis.v12.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hypothesis.pyproj" afterPath="$PROJECT_DIR$/Hypothesis.pyproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestFlowResult.py" afterPath="$PROJECT_DIR$/TestFlowResult.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TrainFlowResult.py" afterPath="$PROJECT_DIR$/TrainFlowResult.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroup2.csv" afterPath="$PROJECT_DIR$/resultsfinalgroup2.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Max Pkt Size Std Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Max Pkt Size Std Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Min Pkt Size Std Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupAvg Pkt Size Std Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMax Pkt Size Std Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Max Pkt Size Std Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Std Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupMin Pkt Size Std Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resultsfinalgroupStd Div Pkt Size .csv" afterPath="$PROJECT_DIR$/resultsfinalgroupStd Div Pkt Size .csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unsupervisedclassification.py" afterPath="$PROJECT_DIR$/unsupervisedclassification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/latestversion.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kmeans.py" afterPath="$PROJECT_DIR$/kmeans.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newversion.py" afterPath="$PROJECT_DIR$/newversion.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plotting.py" afterPath="$PROJECT_DIR$/plotting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/updatedversion.py" afterPath="$PROJECT_DIR$/updatedversion.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="untitled.iws" />
@@ -62,8 +45,8 @@
       <file leaf-file-name="supervisedclassification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supervisedclassification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1165" max-vertical-offset="2080">
-              <caret line="84" column="87" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1092" max-vertical-offset="1807">
+              <caret line="84" column="11" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="11" />
               <folding>
                 <element signature="e#26#44#0" expanded="true" />
               </folding>
@@ -74,31 +57,73 @@
       <file leaf-file-name="unsupervisedclassification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unsupervisedclassification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3979" max-vertical-offset="4560">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3172" max-vertical-offset="3705">
               <caret line="250" column="30" selection-start-line="250" selection-start-column="30" selection-end-line="250" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newversion.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="newversion.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newversion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.141136" vertical-offset="3648" max-vertical-offset="7120">
-              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2067" max-vertical-offset="7891">
+              <caret line="378" column="83" selection-start-line="346" selection-start-column="8" selection-end-line="378" selection-end-column="83" />
+              <folding>
+                <element signature="e#27#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="latestversion.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/latestversion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.451505" vertical-offset="8141" max-vertical-offset="9048">
+              <caret line="647" column="33" selection-start-line="647" selection-start-column="33" selection-end-line="647" selection-end-column="33" />
+              <folding>
+                <element signature="e#26#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pydevd.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="21112" max-vertical-offset="28925">
+              <caret line="1642" column="0" selection-start-line="1642" selection-start-column="0" selection-end-line="1642" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new_hypo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_hypo.py">
+      <file leaf-file-name="hypothesis.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hypothesis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="7536">
-              <caret line="19" column="70" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="70" />
-              <folding>
-                <element signature="e#48#66#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="3302" max-vertical-offset="5122">
+              <caret line="259" column="27" selection-start-line="259" selection-start-column="27" selection-end-line="259" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updatedversion.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/updatedversion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2314" max-vertical-offset="7956">
+              <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kmeans.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kmeans.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2782" max-vertical-offset="4160">
+              <caret line="218" column="31" selection-start-line="218" selection-start-column="31" selection-end-line="218" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,6 +131,11 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="4n1l" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -135,6 +165,8 @@
         <option value="$PROJECT_DIR$/Unsupervisedclassification.py" />
         <option value="$PROJECT_DIR$/unsupervisedclassification.py" />
         <option value="$PROJECT_DIR$/newversion.py" />
+        <option value="$PROJECT_DIR$/updatedversion.py" />
+        <option value="$PROJECT_DIR$/latestversion.py" />
       </list>
     </option>
   </component>
@@ -144,8 +176,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -158,7 +190,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -170,6 +202,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -190,16 +232,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -208,7 +240,7 @@
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Clustering" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -222,7 +254,7 @@
       <recent name="C:\Users\KattaAnil\PycharmProjects\FlowToolPython" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.unsupervisedclassification">
+  <component name="RunManager" selected="Python.latestversion">
     <configuration default="false" name="hypothesis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -242,26 +274,6 @@
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="GenerateFlowStatistics" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FlowToolPython" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="FlowToolPython" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FlowToolPython/GenerateFlowStatistics.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -327,6 +339,26 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
+    <configuration default="false" name="latestversion" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Hypothesis" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/latestversion.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -343,20 +375,6 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Clustering" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -407,23 +425,6 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Clustering" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -464,26 +465,6 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Clustering" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="TARGET" value="" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -506,29 +487,20 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
-      <envs />
-      <method />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.hypothesis" />
-      <item index="1" class="java.lang.String" itemvalue="Python.GenerateFlowStatistics" />
-      <item index="2" class="java.lang.String" itemvalue="Python.new_hypo" />
-      <item index="3" class="java.lang.String" itemvalue="Python.supervisedclassification" />
-      <item index="4" class="java.lang.String" itemvalue="Python.unsupervisedclassification" />
+      <item index="1" class="java.lang.String" itemvalue="Python.new_hypo" />
+      <item index="2" class="java.lang.String" itemvalue="Python.supervisedclassification" />
+      <item index="3" class="java.lang.String" itemvalue="Python.unsupervisedclassification" />
+      <item index="4" class="java.lang.String" itemvalue="Python.latestversion" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.unsupervisedclassification" />
-        <item index="1" class="java.lang.String" itemvalue="Python.supervisedclassification" />
-        <item index="2" class="java.lang.String" itemvalue="Python.new_hypo" />
-        <item index="3" class="java.lang.String" itemvalue="Python.hypothesis" />
-        <item index="4" class="java.lang.String" itemvalue="Python.GenerateFlowStatistics" />
+        <item index="0" class="java.lang.String" itemvalue="Python.latestversion" />
+        <item index="1" class="java.lang.String" itemvalue="Python.unsupervisedclassification" />
+        <item index="2" class="java.lang.String" itemvalue="Python.supervisedclassification" />
+        <item index="3" class="java.lang.String" itemvalue="Python.new_hypo" />
+        <item index="4" class="java.lang.String" itemvalue="Python.hypothesis" />
       </list>
     </recent_temporary>
   </component>
@@ -566,29 +538,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22012103" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32976446" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6966292" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15753424" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34438503" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6966292" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34510434" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -628,6 +601,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Updated code added code for handling all number of cluster models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated code added code for handling all number of cluster models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -642,7 +617,20 @@
           <line>136</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/latestversion.py</url>
+          <line>523</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/latestversion.py</url>
+          <line>541</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -650,31 +638,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="83" />
+      <option name="time" value="90" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/supervisedclassification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#26#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_hypo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8118">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClusteringClassificationModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="450">
@@ -687,7 +655,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8118">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#48#66#0" expanded="true" />
+            <element signature="e#48#66#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -704,7 +672,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7398">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#48#66#0" expanded="true" />
+            <element signature="e#48#66#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -720,19 +688,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4320">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#66#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/realinput.csv">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="333180">
-          <caret line="14" column="94" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -740,9 +696,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3474">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#66#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -977,30 +931,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/realinput.csv">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="333180">
-          <caret line="14" column="94" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda/Lib/site-packages/numpy/core/fromnumeric.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19495799" vertical-offset="37882" max-vertical-offset="52506">
           <caret line="2119" column="0" selection-start-line="2119" selection-start-column="0" selection-end-line="2119" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hypothesis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4551" max-vertical-offset="7200">
-          <caret line="259" column="27" selection-start-line="259" selection-start-column="27" selection-end-line="259" selection-end-column="27" />
-          <folding>
-            <element signature="e#48#66#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1013,20 +947,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/supervisedclassification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1165" max-vertical-offset="2080">
-          <caret line="84" column="87" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1344" max-vertical-offset="2224">
+          <caret line="84" column="11" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="11" />
           <folding>
             <element signature="e#26#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_hypo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7536">
-          <caret line="19" column="70" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="70" />
-          <folding>
-            <element signature="e#48#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1039,11 +963,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kmeans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5120">
+          <caret line="218" column="31" selection-start-line="218" selection-start-column="31" selection-end-line="218" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hypothesis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4551" max-vertical-offset="7200">
+          <caret line="259" column="27" selection-start-line="259" selection-start-column="27" selection-end-line="259" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_hypo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7536">
+          <caret line="19" column="70" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="70" />
+          <folding>
+            <element signature="e#48#66#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updatedversion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2314" max-vertical-offset="7956">
+          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/newversion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.141136" vertical-offset="3648" max-vertical-offset="7120">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4095" max-vertical-offset="7891">
+          <caret line="378" column="83" selection-start-line="346" selection-start-column="8" selection-end-line="378" selection-end-column="83" />
+          <folding>
+            <element signature="e#27#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="21112" max-vertical-offset="28925">
+          <caret line="1642" column="0" selection-start-line="1642" selection-start-column="0" selection-end-line="1642" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/latestversion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.451505" vertical-offset="8141" max-vertical-offset="9048">
+          <caret line="647" column="33" selection-start-line="647" selection-start-column="33" selection-end-line="647" selection-end-column="33" />
+          <folding>
+            <element signature="e#26#44#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -271,10 +271,10 @@ def main_modified():
     number_of_iterations = 3
     percentage_range = 40
     clus = 40
-    for i in range(1, percentage_range):
-        percent = i/float(percentage_range)
+    for clus in range(10, 150, 10):
+        #percent = i/float(percentage_range)
         final_accu = 0.0
-        train_data, train_labels, test_data, test_labels = return_train_test_labels(input_data, None, percent=percent)
+        train_data, train_labels, test_data, test_labels = return_train_test_labels(input_data, None, percent=0.9)
         final_accu = 0.0
         for i in range(number_of_iterations):
             k_means = KMeans(init='random', n_clusters=clus, n_init=50)
@@ -289,16 +289,15 @@ def main_modified():
                 train_result_map[i] = generate_stats_for_cluster(refined_data, i)
             final_accu += testing(test_data, test_labels, k_means, train_result_map)
             print(final_accu)
-        plot_with_all_map[percent] = float(final_accu)/number_of_iterations
-        print('Final Accuracy: '+str(plot_with_all_map[percent])) 
-        
+        plot_with_all_map[clus] = float(final_accu)/number_of_iterations
+        print('Final Accuracy: '+str(plot_with_all_map[clus])) 
         final_accu = 0.0
         for i in range(number_of_iterations):
             k_means = KMeans(init='random', n_clusters=clus, n_init=50)
             train_copy = np.copy(train_data)
             test_copy = np.copy(test_data)
-            train_copy = get_attribute_group_modified(train_copy, [7, 8, 9, 10, 11, 13, 16])
-            test_copy = get_attribute_group_modified(test_copy, [7, 8, 9, 10, 11, 13, 16])
+            train_copy = get_attribute_group_modified(train_copy, [7])
+            test_copy = get_attribute_group_modified(test_copy, [7])
             k_means.fit(train_copy)
             pred = k_means.labels_
             train_result_map = {}
@@ -310,7 +309,7 @@ def main_modified():
                 train_result_map[i] = generate_stats_for_cluster(refined_data, i)
             final_accu += testing(test_copy, test_labels, k_means, train_result_map)
             print(final_accu)
-        plot_with_selected_map[percent] = float(final_accu)/number_of_iterations
+        plot_with_selected_map[clus] = float(final_accu)/number_of_iterations
         
     print(plot_with_all_map)
     print(plot_with_selected_map)
