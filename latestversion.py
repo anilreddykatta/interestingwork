@@ -499,7 +499,7 @@ plot_map = {}
 
 def init_plot_map(plot_map):
     for i in SELECTION_ALGO_LIST:
-        plot_map[i] = {}
+        plot_map[i] = 0
     return plot_map
 
 
@@ -507,11 +507,11 @@ supervised_plot_map = {}
 unsupervised_plot_map = {}
 
 USE_CLUSTERS = True
-USE_CLUSTERS = False
+#USE_CLUSTERS = False
 
 
 def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times=10, consider_all=True,
-                  number_of_repetetions=10, percent=0.9, number_of_cluster_models=4):
+                  number_of_repetetions=5, percent=0.9, number_of_cluster_models=4):
     final_result_from_main_modified_map = {}
     train, train_labels, test, test_labels = return_train_test_labels(input_data, None, percent=percent)
     print('Train: ' + str(train.shape))
@@ -524,6 +524,42 @@ def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times
         for clus in range(10, number_of_clusters, 10):
             plot_map = {}
             plot_map = init_plot_map(plot_map)
+            for i in range(number_of_repetetions):
+                for sub in get_attribute_set_for_number_of_models(number_of_cluster_models):
+                    after_attribute_set = get_attribute_group_modified(train, sub)
+                    after_attribute_test_set = get_attribute_group_modified(test, sub)
+                    if DEBUG:
+                        print(after_attribute_set.shape)
+                        print(after_attribute_test_set.shape)
+                    with open('./results/resultsfinalgroup' + str(get_app_string(sub)) + '.csv', 'w', 20) as output_file:
+                        csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
+                        csv_file.writeheader()
+                        if DEBUG:
+                            print(
+                                '{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
+                        k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, clus, number_of_times,
+                                                                sub)
+
+                for se in SELECTION_ALGO_LIST:
+                    global SELECTION_ALGO
+                    SELECTION_ALGO = se
+                    final_accu = 0.0
+                    for i in range(number_of_repetetions):
+                        plot_map[se] += testing(test, test_labels, consider_all, clus,
+                                               get_attribute_set_for_number_of_models(number_of_cluster_models))
+                        break
+                        print('Final Acc: ' + str(final_accu))
+                    print('Final Accuracy: ' + str(SELECTION_ALGO) + ' ' + str(plot_map[se]))
+
+            for ikey in plot_map.keys():
+                plot_map = float(plot_map[ikey])/number_of_repetetions
+            final_result_from_main_modified_map[clus] = plot_map
+        return final_result_from_main_modified_map
+    else:
+        clus = 40
+        plot_map = {}
+        plot_map = init_plot_map(plot_map)
+        for i in range(number_of_repetetions):
             for sub in get_attribute_set_for_number_of_models(number_of_cluster_models):
                 after_attribute_set = get_attribute_group_modified(train, sub)
                 after_attribute_test_set = get_attribute_group_modified(test, sub)
@@ -536,52 +572,22 @@ def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times
                     if DEBUG:
                         print(
                             '{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
-                    k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, clus, number_of_times,
-                                                            sub)
+                    k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, clus, number_of_times, sub)
 
             for se in SELECTION_ALGO_LIST:
                 global SELECTION_ALGO
                 SELECTION_ALGO = se
                 final_accu = 0.0
                 for i in range(number_of_repetetions):
-                    plot_map[se] = testing(test, test_labels, consider_all, clus,
+                    plot_map[se] += testing(test, test_labels, consider_all, clus,
                                            get_attribute_set_for_number_of_models(number_of_cluster_models))
                     break
                     print('Final Acc: ' + str(final_accu))
                 print('Final Accuracy: ' + str(SELECTION_ALGO) + ' ' + str(plot_map[se]))
-            final_result_from_main_modified_map[clus] = plot_map
-        return final_result_from_main_modified_map
-    else:
-        clus = 40
-        plot_map = {}
-        plot_map = init_plot_map(plot_map)
-        for sub in get_attribute_set_for_number_of_models(number_of_cluster_models):
-            after_attribute_set = get_attribute_group_modified(train, sub)
-            after_attribute_test_set = get_attribute_group_modified(test, sub)
-            if DEBUG:
-                print(after_attribute_set.shape)
-                print(after_attribute_test_set.shape)
-            with open('./results/resultsfinalgroup' + str(get_app_string(sub)) + '.csv', 'w', 20) as output_file:
-                csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
-                csv_file.writeheader()
-                if DEBUG:
-                    print(
-                        '{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
-                k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, clus, number_of_times, sub)
-
-        for se in SELECTION_ALGO_LIST:
-            global SELECTION_ALGO
-            SELECTION_ALGO = se
-            final_accu = 0.0
-            for i in range(number_of_repetetions):
-                plot_map[se] = testing(test, test_labels, consider_all, clus,
-                                       get_attribute_set_for_number_of_models(number_of_cluster_models))
-                break
-                print('Final Acc: ' + str(final_accu))
-            print('Final Accuracy: ' + str(SELECTION_ALGO) + ' ' + str(plot_map[se]))
+        for ikey in plot_map.keys():
+                plot_map = float(plot_map[ikey])/number_of_repetetions
         final_result_from_main_modified_map[clus] = plot_map
         return plot_map
-    #print(final_result_from_main_modified_map)
 
 
 import matplotlib.pyplot as plt
@@ -668,7 +674,7 @@ if __name__ == '__main__':
             final_map[i] = main_modified(input_data, output_file, 150, 50, consider_all, 5, number_of_cluster_models=i)
         print(final_map)
     else:
-        percentage_range = 40
+        percentage_range = 10
         for i in range(3, 11):
             percentage_map = {}
             for inner in range(1, percentage_range):
@@ -677,14 +683,5 @@ if __name__ == '__main__':
                                                   number_of_cluster_models=i, percent=percent)
             final_map[i] = percentage_map
         print(final_map)
-    # for i in range(1, percentage_range):
-    #     percent = i/float(percentage_range)
-    #     final_accu = 0.0
-    #     for i in range(number_of_iterations):
-    #         final_accu +=
-    #         print('Final Accu: '+str(final_accu))
-    #     unsupervised_plot_map[percent] = float(final_accu)/number_of_iterations
-    #     supervised(input_data, percent=percent)
     print("Done with Calculations")
-    #create_comparision_plots()
     output_file.close()
