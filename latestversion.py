@@ -5,16 +5,20 @@ from sklearn.cluster import KMeans
 import csv
 import itertools
 
-PROTO_DICT_MAP = {0: 'http', 1: 'gnutella', 2: "edonkey", 3: "bittorrent", 4: "skype"}
+PROTO_DICT_MAP = {0: 'http', 1: 'gnutella', 2: "edonkey", 3: "bittorrent",
+                  4: "skype"}
 
-PROTO_DICT = {'http': 0.0, 'gnutella': 1.0, "edonkey": 2.0, "bittorrent": 3.0, "skype": 4.0}
+PROTO_DICT = {'http': 0.0, 'gnutella': 1.0, "edonkey": 2.0, "bittorrent": 3.0,
+              "skype": 4.0}
 
 DEBUG = False
 
 ATTRIBUTE_MAP = {0: 'Avg IAT', 1: "Min IAT", 2: "Max IAT", 3: "Std Div IAT",
                  4: "Avg RIAT", 5: "Max RIAT", 6: "Std Div RIAT",
-                 7: 'Avg Pkt Size', 8: 'Min Pkt Size', 9: 'Max Pkt Size', 10: 'Std Div Pkt Size',
-                 11: "Total Pkt Size", 12: "Flow Duration", 13: "Number of Packets", 14: "Avg Pkts Per Sec",
+                 7: 'Avg Pkt Size', 8: 'Min Pkt Size', 9: 'Max Pkt Size',
+                 10: 'Std Div Pkt Size',
+                 11: "Total Pkt Size", 12: "Flow Duration",
+                 13: "Number of Packets", 14: "Avg Pkts Per Sec",
                  15: "Avg Bytes Per Sec", 16: "Payload Size"}
 
 ATTRIBUTE_GROUP_LIST = ['pkt size', 'flow']
@@ -30,13 +34,17 @@ def get_attribute_set_for_number_of_models(number_of_models):
     elif number_of_models == 6:
         return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9]]
     elif number_of_models == 7:
-        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12]]
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9],
+                [11, 12]]
     elif number_of_models == 8:
-        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12], [9, 10]]
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9],
+                [11, 12], [9, 10]]
     elif number_of_models == 9:
-        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12], [9, 10], [7, 9, 10]]
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9],
+                [11, 12], [9, 10], [7, 9, 10]]
     elif number_of_models == 10:
-        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9], [11, 12], [9, 10], [7, 9, 10], [8, 10]]
+        return [[11, 16], [7, 8, 9], [7, 10], [13, 16], [7, 8, 9, 10], [7, 9],
+                [11, 12], [9, 10], [7, 9, 10], [8, 10]]
 
 
 def return_permutations_of_group(group_name):
@@ -95,32 +103,48 @@ def return_train_test_labels(input_data, number_of_each_flows, percent=0.9):
     http_test_data = http_data[int(http_data.shape[0] * percent):, :]
     http_train_labels = http_labels[:int(http_labels.shape[0] * percent), :]
     http_test_labels = http_labels[int(http_labels.shape[0] * percent):, :]
-    gnutella_train_data = gnutella_data[:int(gnutella_data.shape[0] * percent), :]
-    gnutella_test_data = gnutella_data[int(gnutella_data.shape[0] * percent):, :]
-    gnutella_train_labels = gnutella_labels[:int(gnutella_labels.shape[0] * percent), :]
-    gnutella_test_labels = gnutella_labels[int(gnutella_labels.shape[0] * percent):, :]
+    gnutella_train_data = gnutella_data[:int(gnutella_data.shape[0] * percent),
+                          :]
+    gnutella_test_data = gnutella_data[int(gnutella_data.shape[0] * percent):,
+                         :]
+    gnutella_train_labels = gnutella_labels[
+                            :int(gnutella_labels.shape[0] * percent), :]
+    gnutella_test_labels = gnutella_labels[
+                           int(gnutella_labels.shape[0] * percent):, :]
     edonkey_train_data = edonkey_data[:int(edonkey_data.shape[0] * percent), :]
     edonkey_test_data = edonkey_data[int(edonkey_data.shape[0] * percent):, :]
-    edonkey_train_labels = edonkey_labels[:int(edonkey_labels.shape[0] * percent), :]
-    edonkey_test_labels = edonkey_labels[int(edonkey_labels.shape[0] * percent):, :]
-    bittorrent_train_data = bittorrent_data[:int(bittorrent_data.shape[0] * percent), :]
-    bittorrent_test_data = bittorrent_data[int(bittorrent_data.shape[0] * percent):, :]
-    bittorrent_train_labels = bittorrent_labels[:int(bittorrent_labels.shape[0] * percent), :]
-    bittorrent_test_labels = bittorrent_labels[int(bittorrent_labels.shape[0] * percent):, :]
+    edonkey_train_labels = edonkey_labels[
+                           :int(edonkey_labels.shape[0] * percent), :]
+    edonkey_test_labels = edonkey_labels[
+                          int(edonkey_labels.shape[0] * percent):, :]
+    bittorrent_train_data = bittorrent_data[
+                            :int(bittorrent_data.shape[0] * percent), :]
+    bittorrent_test_data = bittorrent_data[
+                           int(bittorrent_data.shape[0] * percent):, :]
+    bittorrent_train_labels = bittorrent_labels[
+                              :int(bittorrent_labels.shape[0] * percent), :]
+    bittorrent_test_labels = bittorrent_labels[
+                             int(bittorrent_labels.shape[0] * percent):, :]
 
     unknown_train_data = unknown_data[:int(unknown_data.shape[0] * percent), :]
     unknown_test_data = unknown_data[int(unknown_data.shape[0] * percent):, :]
-    unknown_train_labels = unknown_labels[:int(unknown_labels.shape[0] * percent), :]
-    unknown_test_labels = unknown_labels[int(unknown_labels.shape[0] * percent):, :]
+    unknown_train_labels = unknown_labels[
+                           :int(unknown_labels.shape[0] * percent), :]
+    unknown_test_labels = unknown_labels[
+                          int(unknown_labels.shape[0] * percent):, :]
 
     train_data = np.vstack(
-        (http_train_data, gnutella_train_data, edonkey_train_data, bittorrent_train_data, unknown_train_data))
+        (http_train_data, gnutella_train_data, edonkey_train_data,
+         bittorrent_train_data, unknown_train_data))
     train_labels = np.vstack(
-        (http_train_labels, gnutella_train_labels, edonkey_train_labels, bittorrent_train_labels, unknown_train_labels))
+        (http_train_labels, gnutella_train_labels, edonkey_train_labels,
+         bittorrent_train_labels, unknown_train_labels))
     test_data = np.vstack(
-        (http_test_data, gnutella_test_data, edonkey_test_data, bittorrent_test_data, unknown_test_data))
+        (http_test_data, gnutella_test_data, edonkey_test_data,
+         bittorrent_test_data, unknown_test_data))
     test_labels = np.vstack(
-        (http_test_labels, gnutella_test_labels, edonkey_test_labels, bittorrent_test_labels, unknown_test_labels))
+        (http_test_labels, gnutella_test_labels, edonkey_test_labels,
+         bittorrent_test_labels, unknown_test_labels))
 
     return train_data, train_labels, test_data, test_labels
 
@@ -170,9 +194,7 @@ class TrainFlowResult(object):
         self.number_of_flows = None
 
     def calculate_final_probability(self):
-        self.final_probability = max(self.probability_for_http, self.probability_for_gnutella,
-                                     self.probability_for_edonkey,
-                                     self.probability_for_bittorrent, self.probability_for_skype)
+        self.final_probability = max(self.probability_for_http, self.probability_for_gnutella, self.probability_for_edonkey, self.probability_for_bittorrent, self.probability_for_skype)
         if self.final_probability == self.probability_for_http:
             self.application = 0.0
         elif self.final_probability == self.probability_for_gnutella:
@@ -185,13 +207,12 @@ class TrainFlowResult(object):
             self.application = 4.0
 
     def get_max_prob(self):
-        return max(self.probability_for_http, self.probability_for_gnutella, self.probability_for_edonkey,
+        return max(self.probability_for_http, self.probability_for_gnutella,
+                   self.probability_for_edonkey,
                    self.probability_for_bittorrent, self.probability_for_skype)
 
     def calculate_population_fraction(self):
-        self.population_fraction = max(self.probability_for_bittorrent, self.probability_for_edonkey,
-                                       self.probability_for_gnutella, self.probability_for_http,
-                                       self.probability_for_skype)
+        self.population_fraction = max(self.probability_for_bittorrent, self.probability_for_edonkey, self.probability_for_gnutella, self.probability_for_http, self.probability_for_skype)
 
 
 class TesFlowResult(object):
@@ -221,9 +242,12 @@ class TesFlowResult(object):
         self.group_labels = []
 
     def write_to_csv(self, csv_file):
-        fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result', 'Considered Fraction',
-                      'Group 1 Fraction', 'Group 2 Fraction', 'Group 3 Fraction', 'Group 4 Fraction',
-                      'Group 1 label', 'Group 2 label', 'Group 3 label', 'Group 4 label', 'Number of Flows',
+        fieldnames = ['Testing Flow', 'Actual Protocol',
+                      'Classification Result', 'Considered Fraction',
+                      'Group 1 Fraction', 'Group 2 Fraction',
+                      'Group 3 Fraction', 'Group 4 Fraction',
+                      'Group 1 label', 'Group 2 label', 'Group 3 label',
+                      'Group 4 label', 'Number of Flows',
                       'True Positive']
 
         csv_file.writerow({'Testing Flow': self.testing_flow,
@@ -243,15 +267,6 @@ class TesFlowResult(object):
 
     def calculate_avg_population_fraction(self):
         total = 0.0
-        """if self.group_flow_one_population:
-            total += self.group_flow_one_population
-        if self.group_flow_three_population:
-            total += self.group_flow_three_population
-        if self.group_flow_two_population:
-            total += self.group_flow_two_population
-        if self.group_flow_four_population:
-            total += self.group_flow_four_population
-        self.avg_population_fraction = float(total) / 4.0"""
         for i in self.group_fractions:
             total += i
         self.avg_population_fraction = float(total) / len(self.group_fractions)
@@ -282,7 +297,8 @@ def generate_stats_for_cluster(data, cluster_number, attribute_group):
         elif i == PROTO_DICT['skype'] and sum(result_map.values()) != 0:
             st_skype = float(result_map[i]) / sum(result_map.values())
     if DEBUG:
-        print(st.format('Cluster' + str(cluster_number), st_http, st_gnutella, st_edonkey, st_bittorrent))
+        print(st.format('Cluster' + str(cluster_number), st_http, st_gnutella,
+                        st_edonkey, st_bittorrent))
     train_flow_result = TrainFlowResult()
     st = ''
     for i in attribute_group:
@@ -306,7 +322,8 @@ k_means_map = {}
 
 
 def k_means(data, train_labels, num_clusters, number_of_times, attribute_group):
-    k_means_cls = KMeans(init='random', n_clusters=num_clusters, n_init=number_of_times)
+    k_means_cls = KMeans(init='random', n_clusters=num_clusters,
+                         n_init=number_of_times)
     k_means_cls.fit(data)
     pred = k_means_cls.labels_
     train_result_map = {}
@@ -327,17 +344,22 @@ import random
 OLD_CODE = False
 
 
-def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_group_for_clusters):
+def testing(test_data, test_labels, consider_all, number_of_clusters,
+            attribute_group_for_clusters):
     if DEBUG:
         print('Test Rows: ' + str(test_data.shape[0]))
     true_positive = 0
     index = 0
     attr_list = []
-    fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result', 'Considered Fraction',
-                  'Group 1 Fraction', 'Group 2 Fraction', 'Group 3 Fraction', 'Group 4 Fraction',
-                  'Group 1 label', 'Group 2 label', 'Group 3 label', 'Group 4 label', 'Number of Flows',
+    fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result',
+                  'Considered Fraction',
+                  'Group 1 Fraction', 'Group 2 Fraction', 'Group 3 Fraction',
+                  'Group 4 Fraction',
+                  'Group 1 label', 'Group 2 label', 'Group 3 label',
+                  'Group 4 label', 'Number of Flows',
                   'True Positive']
-    output_file = open('./results/' + SELECTION_ALGO + '-clusters-' + str(number_of_clusters) + '.csv   ', 'w', 20)
+    output_file = open('./results/' + SELECTION_ALGO + '-clusters-' + str(
+        number_of_clusters) + '.csv   ', 'w', 20)
     print('Output file has been created ' + str(output_file))
     csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
     csv_file.writeheader()
@@ -353,18 +375,23 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
             after_attr_set = get_attribute_group_final(test_data_row, att)
             k_means_for_this = k_means_map[get_app_string(att)]
             pred = k_means_for_this.predict(after_attr_set)
-            test_result.group_fractions.append(train_result_map[int(pred)].population_fraction)
-            test_result.group_labels.append(PROTO_DICT_MAP[train_result_map[int(pred)].application])
+            test_result.group_fractions.append(
+                train_result_map[int(pred)].population_fraction)
+            test_result.group_labels.append(
+                PROTO_DICT_MAP[train_result_map[int(pred)].application])
             temp_result_temp[inner_index] = train_result_map[int(pred)]
             inner_index += 1
         test_result.calculate_avg_population_fraction()
-        test_result.number_of_flows_train = train_result_map[int(pred)].number_of_flows
-        test_result.actual_protocol = PROTO_DICT_MAP[int(test_labels[index, :][0])]
+        test_result.number_of_flows_train = train_result_map[
+            int(pred)].number_of_flows
+        test_result.actual_protocol = PROTO_DICT_MAP[
+            int(test_labels[index, :][0])]
 
         if SELECTION_ALGO == 'RANDOM':
             ranint = random.randint(1, len(attribute_group_for_clusters))
             train_result_temp = temp_result_temp[ranint]
-            test_result.classification_result = PROTO_DICT_MAP[train_result_temp.application]
+            test_result.classification_result = PROTO_DICT_MAP[
+                train_result_temp.application]
             test_result.considered_fraction = train_result_temp.population_fraction
 
         if SELECTION_ALGO == 'GREATEST':
@@ -374,7 +401,8 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
                 if temp_result_temp[ikey].population_fraction > max_value:
                     max_value = temp_result_temp[ikey].population_fraction
                     max_train_result = temp_result_temp[ikey]
-            test_result.classification_result = PROTO_DICT_MAP[max_train_result.application]
+            test_result.classification_result = PROTO_DICT_MAP[
+                max_train_result.application]
             test_result.considered_fraction = max_train_result.population_fraction
 
         if SELECTION_ALGO == 'QUORUM':
@@ -385,14 +413,16 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
                     counter_map[temp_result_temp[ikey].application] += 1
                 else:
                     counter_map[temp_result_temp[ikey].application] = 1
-                    train_temp_result_map[temp_result_temp[ikey].application] = temp_result_temp[ikey]
+                    train_temp_result_map[temp_result_temp[ikey].application] = \
+                        temp_result_temp[ikey]
             max_counter = max(counter_map.values())
             temp_train_result = None
             for ikey in counter_map.keys():
                 if counter_map[ikey] == max_counter:
                     temp_train_result = train_temp_result_map[ikey]
                     break
-            test_result.classification_result = PROTO_DICT_MAP[temp_train_result.application]
+            test_result.classification_result = PROTO_DICT_MAP[
+                temp_train_result.application]
             test_result.considered_fraction = temp_train_result.population_fraction
 
         if SELECTION_ALGO == 'UNANIMOUS-GREATEST':
@@ -405,7 +435,8 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
                 if temp.application != temp_result_temp[ikey].application:
                     result = False
             if result:
-                test_result.classification_result = PROTO_DICT_MAP[temp.application]
+                test_result.classification_result = PROTO_DICT_MAP[
+                    temp.application]
                 test_result.considered_fraction = temp.population_fraction
             else:
                 max_value = 0.0
@@ -414,7 +445,8 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
                     if temp_result_temp[ikey].population_fraction > max_value:
                         max_value = temp_result_temp[ikey].population_fraction
                         max_train_result = temp_result_temp[ikey]
-                test_result.classification_result = PROTO_DICT_MAP[max_train_result.application]
+                test_result.classification_result = PROTO_DICT_MAP[
+                    max_train_result.application]
                 test_result.considered_fraction = max_train_result.population_fraction
 
         if SELECTION_ALGO == 'UNANIMOUS-QUORUM':
@@ -427,7 +459,8 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
                 if temp.application != temp_result_temp[ikey].application:
                     result = False
             if result:
-                test_result.classification_result = PROTO_DICT_MAP[temp.application]
+                test_result.classification_result = PROTO_DICT_MAP[
+                    temp.application]
                 test_result.considered_fraction = temp.population_fraction
             else:
                 counter_map = {}
@@ -437,13 +470,16 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
                         counter_map[temp_result_temp[ikey].application] += 1
                     else:
                         counter_map[temp_result_temp[ikey].application] = 1
-                        train_temp_result_map[temp_result_temp[ikey].application] = temp_result_temp[ikey]
+                        train_temp_result_map[
+                            temp_result_temp[ikey].application] = \
+                            temp_result_temp[ikey]
                 max_counter = max(counter_map.values())
                 temp_train_result = None
                 for ikey in counter_map.keys():
                     if counter_map[ikey] == max_counter:
                         temp_train_result = train_temp_result_map[ikey]
-                test_result.classification_result = PROTO_DICT_MAP[temp_train_result.application]
+                test_result.classification_result = PROTO_DICT_MAP[
+                    temp_train_result.application]
                 test_result.considered_fraction = temp_train_result.population_fraction
 
         if SELECTION_ALGO == 'UNANIMOUS-RANDOM':
@@ -456,12 +492,14 @@ def testing(test_data, test_labels, consider_all, number_of_clusters, attribute_
                 if temp.application != temp_result_temp[ikey].application:
                     result = False
             if result:
-                test_result.classification_result = PROTO_DICT_MAP[temp.application]
+                test_result.classification_result = PROTO_DICT_MAP[
+                    temp.application]
                 test_result.considered_fraction = temp.population_fraction
             else:
                 ranint = random.randint(1, len(attribute_group_for_clusters))
                 train_result_temp = temp_result_temp[ranint]
-                test_result.classification_result = PROTO_DICT_MAP[train_result_temp.application]
+                test_result.classification_result = PROTO_DICT_MAP[
+                    train_result_temp.application]
                 test_result.considered_fraction = train_result_temp.population_fraction
         test_result.testing_flow = index
         index += 1
@@ -492,7 +530,8 @@ def get_app_string(input_list):
 THRESHOLD_FRACTION = 0.6
 
 SELECTION_ALGO = 'RANDOM'
-SELECTION_ALGO_LIST = ['RANDOM', 'GREATEST', 'QUORUM', 'UNANIMOUS-GREATEST', 'UNANIMOUS-QUORUM', 'UNANIMOUS-RANDOM']
+SELECTION_ALGO_LIST = ['RANDOM', 'GREATEST', 'QUORUM', 'UNANIMOUS-GREATEST',
+                       'UNANIMOUS-QUORUM', 'UNANIMOUS-RANDOM']
 # SELECTION_ALGO_LIST = ['UNANIMOUS-GREATEST']
 plot_map = {}
 
@@ -507,18 +546,22 @@ supervised_plot_map = {}
 unsupervised_plot_map = {}
 
 USE_CLUSTERS = True
-#USE_CLUSTERS = False
+# USE_CLUSTERS = False
 
 
-def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times=10, consider_all=True,
-                  number_of_repetetions=5, percent=0.9, number_of_cluster_models=4):
+def main_modified(input_data, outputfile, number_of_clusters=20,
+                  number_of_times=10, consider_all=True,
+                  number_of_repetetions=5, percent=0.9,
+                  number_of_cluster_models=4):
     final_result_from_main_modified_map = {}
-    train, train_labels, test, test_labels = return_train_test_labels(input_data, None, percent=percent)
+    train, train_labels, test, test_labels = return_train_test_labels(
+        input_data, None, percent=percent)
     print('Train: ' + str(train.shape))
     print('Test: ' + str(test.shape))
     if DEBUG:
         print(train.shape)
-    fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result', 'Probability', 'True Positive']
+    fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result',
+                  'Probability', 'True Positive']
     print('After reading testing and training datasets')
     if USE_CLUSTERS:
         for clus in range(10, number_of_clusters, 10):
@@ -535,24 +578,21 @@ def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times
                         csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
                         csv_file.writeheader()
                         if DEBUG:
-                            print(
-                                '{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
-                        k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, clus, number_of_times,
-                                                                sub)
+                            print('{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
+                        k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, clus, number_of_times, sub)
 
                 for se in SELECTION_ALGO_LIST:
                     global SELECTION_ALGO
                     SELECTION_ALGO = se
                     final_accu = 0.0
                     for i in range(number_of_repetetions):
-                        plot_map[se] += testing(test, test_labels, consider_all, clus,
-                                               get_attribute_set_for_number_of_models(number_of_cluster_models))
+                        plot_map[se] += testing(test, test_labels, consider_all, clus, get_attribute_set_for_number_of_models(number_of_cluster_models))
                         break
                         print('Final Acc: ' + str(final_accu))
                     print('Final Accuracy: ' + str(SELECTION_ALGO) + ' ' + str(plot_map[se]))
 
             for ikey in plot_map.keys():
-                plot_map = float(plot_map[ikey])/number_of_repetetions
+                plot_map = float(plot_map[ikey]) / number_of_repetetions
             final_result_from_main_modified_map[clus] = plot_map
         return final_result_from_main_modified_map
     else:
@@ -566,12 +606,12 @@ def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times
                 if DEBUG:
                     print(after_attribute_set.shape)
                     print(after_attribute_test_set.shape)
-                with open('./results/resultsfinalgroup' + str(get_app_string(sub)) + '.csv', 'w', 20) as output_file:
+                with open('./results/resultsfinalgroup' + str(
+                        get_app_string(sub)) + '.csv', 'w', 20) as output_file:
                     csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
                     csv_file.writeheader()
                     if DEBUG:
-                        print(
-                            '{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
+                        print('{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
                     k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, clus, number_of_times, sub)
 
             for se in SELECTION_ALGO_LIST:
@@ -579,13 +619,12 @@ def main_modified(input_data, outputfile, number_of_clusters=20, number_of_times
                 SELECTION_ALGO = se
                 final_accu = 0.0
                 for i in range(number_of_repetetions):
-                    plot_map[se] += testing(test, test_labels, consider_all, clus,
-                                           get_attribute_set_for_number_of_models(number_of_cluster_models))
+                    plot_map[se] += testing(test, test_labels, consider_all, clus, get_attribute_set_for_number_of_models(number_of_cluster_models))
                     break
                     print('Final Acc: ' + str(final_accu))
                 print('Final Accuracy: ' + str(SELECTION_ALGO) + ' ' + str(plot_map[se]))
         for ikey in plot_map.keys():
-                plot_map = float(plot_map[ikey])/number_of_repetetions
+            plot_map = float(plot_map[ikey]) / number_of_repetetions
         final_result_from_main_modified_map[clus] = plot_map
         return plot_map
 
@@ -599,12 +638,14 @@ from sklearn.metrics import accuracy_score
 
 def supervised(input_data, percent=0.9):
     print("Inside Supervised")
-    train, train_labels, test, test_labels = return_train_test_labels(input_data, None, percent=percent)
+    train, train_labels, test, test_labels = return_train_test_labels(
+        input_data, None, percent=percent)
     print('Train: ' + str(train.shape))
     print('Test: ' + str(test.shape))
     train = get_attribute_group_modified(train, [7, 8, 9, 10, 11, 13, 16])
     test = get_attribute_group_modified(test, [7, 8, 9, 10, 11, 13, 16])
-    clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), algorithm="SAMME", n_estimators=200)
+    clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
+                             algorithm="SAMME", n_estimators=200)
     clf.fit(train, train_labels)
     pred = clf.predict(test)
     supervised_plot_map[percent] = accuracy_score(test_labels, pred)
@@ -628,7 +669,7 @@ def create_plots():
         index += 1
     print('Plotting first few plots are done: ' + str(index))
     figure(index)
-    #plt.subplot(nrows, 1, index)
+    # plt.subplot(nrows, 1, index)
     for se in plot_map.keys():
         plt.plot(plot_map[se].keys(), plot_map[se].values(), label=se)
     plt.title('Number of Clusters v/s Accuracy of Various Algos')
@@ -644,8 +685,10 @@ def create_comparision_plots():
     ax = fig.gca()
     ax.set_xticks(np.arange(0, 1, 0.1))
     ax.set_yticks(np.arange(0.6, 1, 0.05))
-    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), 'r*', label="Hypothesis")
-    plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), 'g^', label='Supervised')
+    plt.plot(unsupervised_plot_map.keys(), unsupervised_plot_map.values(), 'r*',
+        label="Hypothesis")
+    plt.plot(supervised_plot_map.keys(), supervised_plot_map.values(), 'g^',
+        label='Supervised')
     plt.xlim([0.0, 1.0])
     plt.ylim([0.6, 1.0])
     plt.grid()
@@ -678,9 +721,8 @@ if __name__ == '__main__':
         for i in range(3, 11):
             percentage_map = {}
             for inner in range(1, percentage_range):
-                percent = inner/float(percentage_range)
-                percentage_map[inner] = main_modified(input_data, output_file, 150, 50, consider_all, 5,
-                                                  number_of_cluster_models=i, percent=percent)
+                percent = inner / float(percentage_range)
+                percentage_map[inner] = main_modified(input_data, output_file, 150, 50, consider_all, 5, number_of_cluster_models=i, percent=percent)
             final_map[i] = percentage_map
         print(final_map)
     print("Done with Calculations")
