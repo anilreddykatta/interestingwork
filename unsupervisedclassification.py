@@ -22,7 +22,7 @@ ATTRIBUTE_MAP = {0:'Avg IAT', 1: "Min IAT", 2:"Max IAT", 3:"Std Div IAT",
                  15:"Avg Bytes Per Sec", 16:"Payload Size"}
 
 
-ATTRIBUTE_GROUP_LIST = ['iat', 'riat', 'pkt size', 'flow']
+ATTRIBUTE_GROUP_LIST = ['pkt size', 'flow']
 
 #ATTRIBUTE_GROUP_LIST = ['pkt size']
 
@@ -32,9 +32,9 @@ def return_permutations_of_group(group_name):
     elif group_name.lower() == 'riat':
         return generate_all_possible_combinations_of_list([4, 5, 6])
     elif group_name.lower() == 'pkt size':
-        return generate_all_possible_combinations_of_list([7, 8, 9, 10])
+        return generate_all_possible_combinations_of_list([7, 10])
     elif group_name.lower() == 'flow':
-        return generate_all_possible_combinations_of_list([11, 12, 13, 14, 15, 16])
+        return generate_all_possible_combinations_of_list([11, 16])
 
 
 
@@ -116,7 +116,7 @@ def get_attribute_group(data, attribute_group=1):
 
 def get_attribute_group_modified(data, attribute_list):
     if len(attribute_list) == 1:
-        return_data = data[:,attribute_list]
+        return_data = data[:, attribute_list]
         return_data = return_data.reshape((return_data.shape[0], 1))
         return return_data
     else:
@@ -180,7 +180,7 @@ def k_means(data, train_labels, num_clusters, number_of_times, attribute_group):
     #Testing Begins here
     return (k_means_cls, train_result_map)
 
-def testing(test_data, test_labels, k_means_cls, train_result_map, attribute_group, csv_file, consider_all):
+def testing(test_data, test_labels, k_means_cls, train_result_map, attribute_group, consider_all):
     pred = k_means_cls.predict(test_data)
     index = 0
     test_flow_result = None
@@ -197,7 +197,6 @@ def testing(test_data, test_labels, k_means_cls, train_result_map, attribute_gro
         test_flow_result.true_positive = (PROTO_DICT_MAP[test_labels[index, :][0]] == PROTO_DICT_MAP[int(train_result_map[int(i)].application)])
         if test_flow_result.true_positive:
             true_positive += 1
-        test_flow_result.write_to_csv(csv_file)
         index += 1
         if test_flow_result.classification_result:
             results_map[test_flow_result.probability] = 2.0
@@ -232,7 +231,7 @@ def main(number_of_clusters=20, number_of_times=10, consider_all = True):
             after_attribute_set = get_attribute_group(train, i)
             k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, number_of_clusters, number_of_times, i)
             after_attribute_test_set = get_attribute_group(test, i)
-            final_accuracy = testing(after_attribute_test_set, test_labels, k_means_cls, train_result_map, i, csv_file, consider_all)
+            final_accuracy = testing(after_attribute_test_set, test_labels, k_means_cls, train_result_map, i, consider_all)
             print('='*15+str('Atrribute Group '+str(i))+'='*15)
 
 
@@ -243,33 +242,86 @@ def get_app_string(input_list):
     return return_string
 
 
+import pickle
+
+
+def get_file_name(li, cl):
+    return ATTRIBUTE_MAP[li[0]] + '-'+ATTRIBUTE_MAP[li[1]]+'-'+cl+'.txt'
+
+
 def main_modified(attribute_list, outputfile, number_of_clusters=20, number_of_times=10, consider_all=True, number_of_repetetions=10):
     input_data = get_numpy_array_from_file("mofifiedinput.csv")
     train, train_labels, test, test_labels = return_train_test_labels(input_data, None)
-    print(train.shape)
-    fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result', 'Probability', 'True Positive']
-    for sub in attribute_list:
-        final_accu = 0.0
-        after_attribute_set = get_attribute_group_modified(train, sub)
-        after_attribute_test_set = get_attribute_group_modified(test, sub)
-        if DEBUG:
-            print(after_attribute_set.shape)
-            print(after_attribute_test_set.shape)
-        for i in range(number_of_repetetions):
-            with open('resultsfinalgroup'+str(get_app_string(sub))+'.csv', 'w', 20) as output_file:
-                csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
-                csv_file.writeheader()
-                if DEBUG:
-                    print('{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))                
-                k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, number_of_clusters, number_of_times, sub)                
-                final_accuracy = testing(after_attribute_test_set, test_labels, k_means_cls, train_result_map, sub, csv_file, consider_all)
-                final_accu += final_accuracy
-        print("Final Accuracy: "+str(final_accu/number_of_repetetions))
-        print('='*15+str('Atrribute Group '+str(get_app_string(sub)))+'='*15)
-        outputfile.write("Final Accuracy: "+str(final_accu/number_of_repetetions)+"\n")
-        outputfile.write('-'*15+str('Atrribute Group '+str(get_app_string(sub)))+'-'*15+"\n")
+    if not OLD_CODE:
+        if USE_CLUSTERS:
+            plot_map = {}
+            for sub in attribute_list:
+                if len(sub) < 2:
+                    continue
+                final_accu = 0.0
+                after_attribute_set = get_attribute_group_modified(train, sub)
+                after_attribute_test_set = get_attribute_group_modified(test, sub)
+                for number_of_clusters in range(5, 150, 5):
+                    final_accu = 0.0
+                    for i in range(number_of_repetetions):
+                        k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, number_of_clusters, number_of_times, sub)
+                        final_accuracy = testing(after_attribute_test_set, test_labels, k_means_cls, train_result_map, sub, consider_all)
+                        final_accu += final_accuracy
+                        print("Inside Use Clusters: "+get_file_name(sub, 'clus')+str(final_accu))
+                    final_accu = float(final_accu)/number_of_repetetions
+                    plot_map[number_of_clusters] = final_accu
+            output_file = open(get_file_name(sub, 'clus'), "ab+")
+            pickle.dump(plot_map, output_file)
+            output_file.close()
+        else:
+            percentage_range = 40
+            plot_map = {}
+            for sub in attribute_list:
+                if len(sub) < 2:
+                    continue
+                after_attribute_train_labels = get_attribute_group(train_labels)
+                for i in range(1, percentage_range):
+                    final_accu = 0.0
+                    percent = float(i)/percentage_range
+                    train, train_labels, test, test_labels = return_train_test_labels(input_data, None,  percent=percent)
+                    after_attribute_set = get_attribute_group_modified(train, sub)
+                    after_attribute_test_set = get_attribute_group_modified(test, sub)
+                    for j in range(number_of_repetetions):
+                        k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, number_of_clusters, number_of_times, sub)
+                        final_accuracy = testing(after_attribute_test_set, test_labels, k_means_cls, train_result_map, sub, consider_all)
+                        final_accu += final_accuracy
+                        print("Inside No Use Clusters: "+get_file_name(sub, 'percent')+str(final_accu))
+                    plot_map[percent] = float(final_accu)/number_of_repetetions
+            output_file = open(get_file_name(sub, 'percent'), 'ab+')
+            pickle.dump(plot_map, output_file)
+            output_file.close()
+    if OLD_CODE:
+        print(train.shape)
+        fieldnames = ['Testing Flow', 'Actual Protocol', 'Classification Result', 'Probability', 'True Positive']
+        for sub in attribute_list:
+            final_accu = 0.0
+            after_attribute_set = get_attribute_group_modified(train, sub)
+            after_attribute_test_set = get_attribute_group_modified(test, sub)
+            if DEBUG:
+                print(after_attribute_set.shape)
+                print(after_attribute_test_set.shape)
+            for i in range(number_of_repetetions):
+                with open('resultsfinalgroup'+str(get_app_string(sub))+'.csv', 'w', 20) as output_file:
+                    csv_file = csv.DictWriter(output_file, delimiter=",", fieldnames=fieldnames)
+                    csv_file.writeheader()
+                    if DEBUG:
+                        print('{0:15}{1:10}{2:10}{3:10}{4:10}'.format('Cluster', 'Http', 'Gnutella', 'Edonkey', 'Bittorrent'))
+                    k_means_cls, train_result_map = k_means(after_attribute_set, train_labels, number_of_clusters, number_of_times, sub)
+                    final_accuracy = testing(after_attribute_test_set, test_labels, k_means_cls, train_result_map, sub, csv_file, consider_all)
+                    final_accu += final_accuracy
+            print("Final Accuracy: "+str(final_accu/number_of_repetetions))
+            print('='*15+str('Atrribute Group '+str(get_app_string(sub)))+'='*15)
+            outputfile.write("Final Accuracy: "+str(final_accu/number_of_repetetions)+"\n")
+            outputfile.write('-'*15+str('Atrribute Group '+str(get_app_string(sub)))+'-'*15+"\n")
 
 
+OLD_CODE = False
+USE_CLUSTERS = False
 if __name__ == '__main__':
     #inp = int(input("Enter 1 or 0 whether to use all or only > 0.8: "))
     inp = 1
@@ -282,5 +334,5 @@ if __name__ == '__main__':
     #with open("resultscompiled.txt", "w", 20) as output_file:
     for att in ATTRIBUTE_GROUP_LIST:
         attr_list = return_permutations_of_group(att)
-        main_modified(attr_list, output_file, 25, 50, consider_all, 3)
+        main_modified(attr_list, output_file, 25, 50, consider_all, 5)
     output_file.close()

@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 import csv
 import itertools
+import pickle
 
 PROTO_DICT_MAP = {0: 'http', 1: 'gnutella', 2: "edonkey", 3: "bittorrent",
                   4: "skype"}
@@ -417,13 +418,29 @@ def testing(test_data, test_labels, consider_all, number_of_clusters,
                         temp_result_temp[ikey]
             max_counter = max(counter_map.values())
             temp_train_result = None
+            number_of_repeated_values = 0
+
             for ikey in counter_map.keys():
                 if counter_map[ikey] == max_counter:
-                    temp_train_result = train_temp_result_map[ikey]
-                    break
-            test_result.classification_result = PROTO_DICT_MAP[
-                temp_train_result.application]
-            test_result.considered_fraction = temp_train_result.population_fraction
+                    number_of_repeated_values += 1
+            if number_of_repeated_values == 1:
+                for ikey in counter_map.keys():
+                    if counter_map[ikey] == max_counter:
+                        temp_train_result = train_temp_result_map[ikey]
+                        break
+                test_result.classification_result = PROTO_DICT_MAP[
+                    temp_train_result.application]
+                test_result.considered_fraction = temp_train_result.population_fraction
+            else:
+                max_value = 0.0
+                max_train_result = None
+                for ikey in temp_result_temp.keys():
+                    if temp_result_temp[ikey].population_fraction > max_value:
+                        max_value = temp_result_temp[ikey].population_fraction
+                        max_train_result = temp_result_temp[ikey]
+                test_result.classification_result = PROTO_DICT_MAP[
+                    max_train_result.application]
+                test_result.considered_fraction = max_train_result.population_fraction
 
         if SELECTION_ALGO == 'UNANIMOUS-GREATEST':
             result = True
@@ -545,8 +562,7 @@ def init_plot_map(plot_map):
 supervised_plot_map = {}
 unsupervised_plot_map = {}
 
-USE_CLUSTERS = True
-# USE_CLUSTERS = False
+
 
 
 def main_modified(input_data, outputfile, number_of_clusters=20,
@@ -590,9 +606,9 @@ def main_modified(input_data, outputfile, number_of_clusters=20,
                         break
                         print('Final Acc: ' + str(final_accu))
                     print('Final Accuracy: ' + str(SELECTION_ALGO) + ' ' + str(plot_map[se]))
-
+            print(plot_map)
             for ikey in plot_map.keys():
-                plot_map = float(plot_map[ikey]) / number_of_repetetions
+                plot_map[ikey] = float(plot_map[ikey]) / number_of_repetetions
             final_result_from_main_modified_map[clus] = plot_map
         return final_result_from_main_modified_map
     else:
@@ -620,11 +636,11 @@ def main_modified(input_data, outputfile, number_of_clusters=20,
                 final_accu = 0.0
                 for i in range(number_of_repetetions):
                     plot_map[se] += testing(test, test_labels, consider_all, clus, get_attribute_set_for_number_of_models(number_of_cluster_models))
-                    break
                     print('Final Acc: ' + str(final_accu))
                 print('Final Accuracy: ' + str(SELECTION_ALGO) + ' ' + str(plot_map[se]))
+            print(plot_map)
         for ikey in plot_map.keys():
-            plot_map = float(plot_map[ikey]) / number_of_repetetions
+            plot_map[ikey] = float(plot_map[ikey]) / number_of_repetetions
         final_result_from_main_modified_map[clus] = plot_map
         return plot_map
 
@@ -698,6 +714,8 @@ def create_comparision_plots():
     plt.ylabel('Accuracy')
     plt.show()
 
+USE_CLUSTERS = True
+USE_CLUSTERS = False
 
 if __name__ == '__main__':
     print("New New updated version of the file")
@@ -713,10 +731,14 @@ if __name__ == '__main__':
     percentage_range = 40
     final_map = {}
     if USE_CLUSTERS:
+        output_file = open("outpuresults_clusters.txt", "ab+")
         for i in range(3, 11):
             final_map[i] = main_modified(input_data, output_file, 150, 50, consider_all, 5, number_of_cluster_models=i)
         print(final_map)
+        pickle.dump(final_map, output_file)
+        output_file.close()
     else:
+        output_file = open("outpuresults_percentage.txt", "ab+")
         percentage_range = 10
         for i in range(3, 11):
             percentage_map = {}
@@ -725,5 +747,7 @@ if __name__ == '__main__':
                 percentage_map[inner] = main_modified(input_data, output_file, 150, 50, consider_all, 5, number_of_cluster_models=i, percent=percent)
             final_map[i] = percentage_map
         print(final_map)
+        pickle.dump(final_map, output_file)
+        output_file.close()
     print("Done with Calculations")
     output_file.close()
